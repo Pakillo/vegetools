@@ -11,3 +11,7 @@ knitr::opts_chunk$set(
   fig.path = "README-"
 )
 ```
+
+
+
+[![Travis-CI Build Status](https://travis-ci.org/Pakillo/vegetools.svg?branch=master)](https://travis-ci.org/Pakillo/vegetools)
