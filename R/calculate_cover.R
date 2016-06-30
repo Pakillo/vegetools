@@ -86,6 +86,10 @@ calculate_cover_transect <- function(df.split, id.col,
 
   fdata <- df.split[, first.col:last.col]  # retain cover data only; exclude other columns
 
+  ### check that all columns are numeric
+  if (!all(sapply(fdata, is.numeric)))
+    stop("All columns with cover data must be numeric.")
+
 
   ### check that number of values is even for each column
 

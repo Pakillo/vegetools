@@ -1,6 +1,6 @@
 Package: vegetools
 Title: Tools for vegetation analysis
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: person('Francisco', 'Rodriguez-Sanchez', email='f.rodriguez.sanc@gmail.com', role = c('aut', 'cre'))
 Description: By now, just tools to calculate vegetation cover from field
     transects data.
