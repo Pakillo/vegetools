@@ -5,8 +5,8 @@
 \title{Calculate total cover per species in vegetation transects}
 \usage{
 calculate_cover(df, split.cols, first.spcol, last.spcol = ncol(df), tr.length,
-  bare = FALSE, precision, check.incremental = TRUE, prop = FALSE,
-  long.format = FALSE, show.progress = TRUE)
+  bare = FALSE, precision, check.incremental = TRUE, sort.cols = TRUE,
+  prop = FALSE, long.format = FALSE, show.progress = TRUE)
 }
 \arguments{
 \item{df}{A dataframe with one column per recorded species, plus additional columns
@@ -32,6 +32,9 @@ bare cover by exclusion.}
 
 \item{check.incremental}{Logical (default is \code{TRUE}). Check that cover data are
 sorted incrementally? Must be \code{TRUE} if calculating bare cover with this function.}
+
+\item{sort.cols}{Logical. If TRUE (default), sort species columns alphabetically
+(including bare as a species).}
 
 \item{prop}{Logical. If \code{TRUE}, results are expressed as proportion
 of \code{tr.length} covered by each species. If \code{FALSE} (the default), results represent

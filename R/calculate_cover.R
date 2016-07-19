@@ -26,6 +26,8 @@
 #' @param tr.length Numeric. Total transect length (e.g. in meters).
 #' @param precision Numeric. Precision of species cover measurements. Only used to calculate
 #' bare cover by exclusion.
+#' @param sort.cols Logical. If TRUE (default), sort species columns alphabetically
+#' (including bare as a species).
 #' @param prop Logical. If \code{TRUE}, results are expressed as proportion
 #' of \code{tr.length} covered by each species. If \code{FALSE} (the default), results represent
 #' linear absolute length covered by each species.
@@ -49,6 +51,7 @@ calculate_cover <- function(df, split.cols,
                             tr.length,
                             bare = FALSE, precision,
                             check.incremental = TRUE,
+                            sort.cols = TRUE,
                             prop = FALSE, long.format = FALSE,
                             show.progress = TRUE){
 
@@ -61,6 +64,12 @@ calculate_cover <- function(df, split.cols,
                      calc.bare = bare, tr.len = tr.length, precis = precision,
                      # back to ddply args:
                      .progress = ifelse(show.progress, "text", "none"))
+
+
+  ## sort species columns alphabetically?
+  if (sort.cols){
+    out <- out[, c(split.cols, sort(colnames(out[, (length(split.cols)+1):ncol(out)])))]
+  }
 
 
   if (prop){

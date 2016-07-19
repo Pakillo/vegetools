@@ -20,18 +20,20 @@ test_that("species and bare cover are correct", {
                   row.names = c(NA, -60L), class = "data.frame")
 
   ## tests
-  sp1 <- calculate_cover(df, split.cols = "transect", first.spcol = 3, tr.length = 100)$species1
+  sp1 <- calculate_cover(df, split.cols = "transect", first.spcol = 3, tr.length = 100,
+                         sort.cols = FALSE)$species1
   expect_equal(sp1, c(68.1, 49.3, 31.5))
 
-  sp2 <- calculate_cover(df, split.cols = "transect", first.spcol = 3, tr.length = 100)$species2
+  sp2 <- calculate_cover(df, split.cols = "transect", first.spcol = 3, tr.length = 100,
+                         sort.cols = FALSE)$species2
   expect_equal(sp2, c(59.1, 0, 0))
 
   bare <- calculate_cover(df, split.cols = "transect", first.spcol = 3, tr.length = 100,
-                          bare = TRUE, precision = 0.1)$bare
+                          bare = TRUE, precision = 0.1, sort.cols = FALSE)$bare
   expect_equal(bare, c(5.7, 50.7, 68.5))
 
   prop <- calculate_cover(df, split.cols = "transect", first.spcol = 3, tr.length = 100,
-                          bare = TRUE, precision = 0.1,
+                          bare = TRUE, precision = 0.1, sort.cols = FALSE,
                           prop = TRUE)
   expect_equal(prop[2:4], data.frame(species1 = c(0.681, 0.493, 0.315),
                                 species2 = c(0.591, 0, 0),
