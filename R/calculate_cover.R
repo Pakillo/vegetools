@@ -9,7 +9,7 @@
 #' @importFrom plyr ddply
 #' @importFrom gtools odd even
 #' @importFrom tidyr gather
-#' @importFrom dplyr arrange_
+#' @importFrom dplyr arrange
 #' @param df A dataframe with one column per recorded species, plus additional columns
 #' to identify transects (and possibly sections within transects, shrub or tree layers, etc).
 #' For each species, introduce initial and ending distances every time the species appears along
@@ -78,7 +78,7 @@ calculate_cover <- function(df, split.cols,
 
   if (long.format){
     out.long <- tidyr::gather(out, "species", "cover", (length(split.cols)+1):ncol(out))
-    out <- dplyr::arrange_(out.long, .dots = split.cols)
+    out <- dplyr::arrange(out.long, .dots = split.cols)
   }
 
   out
